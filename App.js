@@ -1,21 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import Header from './src/components/Header'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default class App extends React.Component {
+
+	renderList() {
+		const names = [
+			'Eddie Van Halen',
+			'Jimi Hendrix',
+			'Chimbinha',
+			'Steve Vai'
+		];
+
+		const textElements = names.map(name => {
+			return <Text>{name}</Text>
+		});
+
+		return textElements;
+	}
+
+	render () {
+		return (
+			<View>
+				<Header title="Pessoas" />
+				{this.renderList()}
+			</View>
+		);
+	}
+}
