@@ -26,8 +26,12 @@ export default class App extends React.Component {
 	}
 
 	renderList() {
+		const textElements = this.state.people.map(person => {
+			const {first} = person.name;
+			return <Text key={first}>{first}</Text>
+		})
 
-		//return textElements;
+		return textElements
 	}
 
 	render () {
