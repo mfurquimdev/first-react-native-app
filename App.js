@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Header from './src/components/Header'
+import PeopleList from './src/components/PeopleList'
 
 import axios from 'axios';
 
@@ -25,20 +26,11 @@ export default class App extends React.Component {
 			})
 	}
 
-	renderList() {
-		const textElements = this.state.people.map(person => {
-			const {first} = person.name;
-			return <Text key={first}>{first}</Text>
-		})
-
-		return textElements
-	}
-
 	render () {
 		return (
 			<View>
 				<Header title="Pessoas" />
-				{this.renderList()}
+				<PeopleList people={this.state.people} />
 			</View>
 		);
 	}
