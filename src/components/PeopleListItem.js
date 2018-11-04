@@ -30,10 +30,14 @@ const styles = StyleSheet.create({
 	lineText: {
 		fontSize: 20,
 		paddingLeft: 15,
+		flex: 6
 	},
 	avatar: {
 		aspectRatio: 1,
-		width: 200
+		flex: 1,
+		marginLeft: 15,
+		borderRadius: 50
+
 	}
 })
 
