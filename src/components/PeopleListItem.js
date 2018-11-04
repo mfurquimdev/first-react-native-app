@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import { capitalizeFirstLetter } from '../util'
 
@@ -9,12 +9,16 @@ const PeopleListItem = props => {
 	const {thumbnail} = person.picture
 
 	return (
+		<TouchableOpacity onPress={() => {
+			console.log("Clicou em: " + first)
+		}}>
 		<View style={styles.line}>
 			<Image style={styles.avatar} source={{ uri: thumbnail }} />
 			<Text style={styles.lineText}>
 				{`${capitalizeFirstLetter(title)} ${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}
 			</Text>
 		</View>
+		</TouchableOpacity>
 	);
 }
 
