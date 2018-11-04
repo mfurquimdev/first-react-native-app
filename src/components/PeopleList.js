@@ -5,7 +5,6 @@ import PeopleListItem from './PeopleListItem'
 
 const PeopleList = (props) => {
 	const {people} = props
-	console.log(people)
 
 	const items = people.map(person =>
 		<PeopleListItem
