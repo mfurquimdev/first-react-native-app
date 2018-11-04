@@ -1,9 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-const capitalizeFirstLetter = string => {
-	return string[0].toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter } from '../util'
+
 const PeopleListItem = props => {
 	const {person} = props
 	const {title, first, last} = person.name
