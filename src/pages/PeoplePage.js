@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-import Header from '../components/Header'
 import PeopleList from '../components/PeopleList'
 
 import axios from 'axios';
@@ -29,7 +28,6 @@ export default class PeoplePage extends React.Component {
 	render () {
 		return (
 			<View>
-				<Header title="Pessoas" />
 				<PeopleList people={this.state.people} />
 			</View>
 		);
