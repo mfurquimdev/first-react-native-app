@@ -1,9 +1,12 @@
 import { createStackNavigator } from 'react-navigation'
-import { PeoplePage } from './src/pages'
+import { PeoplePage, PeopleDetailPage } from './src/pages'
 
 export default createStackNavigator({
 	'Main': {
 		screen: PeoplePage
+	},
+	'PeopleDetail': {
+		screen: PeopleDetailPage
 	}
 }, {
 	navigationOptions: {
