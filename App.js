@@ -10,15 +10,16 @@ export default createStackNavigator({
 	'PeopleDetail': {
 		screen: PeopleDetailPage,
 		navigationOptions: ({ navigation }) => {
-			const personsName = capitalizeFirstLetter(
+			const  personName = capitalizeFirstLetter(
 				navigation.state.params.person.name.first
 			);
 			return ({
-				title: personsName,
+				title: personName,
 				headerTitleStyle: {
 					color: 'white',
 					fontSize: 30,
-					alignSelf: 'center', // Not working!
+					textAlign: 'center',
+					flex:1,
 				}
 			});
 		}
@@ -35,7 +36,8 @@ export default createStackNavigator({
 		headerTitleStyle: {
 			color: 'white',
 			fontSize: 30,
-			alignSelf: 'center', // Not working!
-		}
+			textAlign: 'center',
+			flex:1,
+		},
 	}
 });
