@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderBottomColor: '#bbb',
 
-		alignItems: 'center',
+		textAlign: 'center',
 		flexDirection: 'row',
 	},
 	lineText: {
