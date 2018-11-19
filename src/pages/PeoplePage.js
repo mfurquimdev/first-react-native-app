@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 
 import PeopleList from '../components/PeopleList'
 
@@ -10,24 +10,34 @@ export default class PeoplePage extends React.Component {
 		super(props);
 
 		this.state = {
-			people: []
+			people: [],
+			loading: false,
 		}
 	}
 
 	componentDidMount() {
-		axios
-			.get('https://randomuser.me/api?nat=br&results=15')
-			.then(response => {
-				const {results} = response.data
-				this.setState({
-					people: results
+		this.setState({ loading: true });
+		setTimeout(() => {
+			axios
+				.get('https://randomuser.me/api?nat=br&results=15')
+				.then(response => {
+					const {results} = response.data
+					this.setState({
+						people: results,
+						loading: false,
+					})
 				})
-			})
+		}, 1500)
 	}
 
 	render () {
 		return (
 			<View>
+				{
+					this.state.loading
+						? <ActivityIndicator size="large" color="#6ca2f7" />
+						: null
+				}
 				<PeopleList
 					people={this.state.people}
 					onPressItem={pageParams => {
