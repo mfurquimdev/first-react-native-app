@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 
 import PeopleList from '../components/PeopleList'
 
@@ -27,23 +27,29 @@ export default class PeoplePage extends React.Component {
 						loading: false,
 					})
 				})
-		}, 1500)
+		}, 500)
 	}
 
 	render () {
 		return (
-			<View>
+			<View style={styles.container}>
 				{
 					this.state.loading
-						? <ActivityIndicator size="large" color="#6ca2f7" />
-						: null
+						? <ActivityIndicator style={styles.loading} size="large" color="#6ca2f7" />
+						: <PeopleList
+							people={this.state.people}
+							onPressItem={pageParams => {
+								this.props.navigation.navigate('PeopleDetail', pageParams);
+							}}/>
 				}
-				<PeopleList
-					people={this.state.people}
-					onPressItem={pageParams => {
-						this.props.navigation.navigate('PeopleDetail', pageParams);
-					}}/>
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: "center",
+	},
+})
