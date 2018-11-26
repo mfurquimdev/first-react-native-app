@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
 	cell: {
 		fontSize: 18,
 		paddingLeft: 5,
-		borderWidth: 1,
 	},
 	label: {
 		fontWeight: 'bold',
